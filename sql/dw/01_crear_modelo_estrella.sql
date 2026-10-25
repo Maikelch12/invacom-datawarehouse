@@ -1,7 +1,7 @@
 -- =====================================================================
 -- Modelo dimensional del Data Warehouse de Invacom Inc S.A.
 -- Motor: SQL Server  |  Base: InvacomDW
--- 5 dimensiones + 2 tablas de hechos (fact_ventas y fact_pedidos)
+-- 7 dimensiones + 2 tablas de hechos (fact_ventas y fact_pedidos)
 -- Ejecutar en SSMS (F5). Se puede volver a ejecutar: borra y recrea todo.
 -- =====================================================================
 
@@ -18,6 +18,8 @@ DROP TABLE IF EXISTS dbo.dim_cliente;
 DROP TABLE IF EXISTS dbo.dim_producto;
 DROP TABLE IF EXISTS dbo.dim_empleado;
 DROP TABLE IF EXISTS dbo.dim_transportista;
+DROP TABLE IF EXISTS dbo.dim_descuento;
+DROP TABLE IF EXISTS dbo.dim_estado_envio;
 DROP TABLE IF EXISTS dbo.prueba_shippers;   -- tabla de la prueba de conexión
 GO
 
@@ -91,6 +93,29 @@ CREATE TABLE dbo.dim_transportista (
     CONSTRAINT pk_dim_transportista PRIMARY KEY (transportista_key),
     CONSTRAINT uq_dim_transportista_id UNIQUE (transportista_id)
 );
+
+-- Dimensión Descuento (dimensión de bandas: agrupa los porcentajes en rangos)
+-- Un registro por cada porcentaje de descuento distinto en order_details
+CREATE TABLE dbo.dim_descuento (
+    descuento_key    INT IDENTITY(1,1) NOT NULL,
+    descuento_pct    DECIMAL(4,2)   NOT NULL,   -- llave de negocio (0.15 = 15 %)
+    descuento_texto  NVARCHAR(10)   NOT NULL,   -- '15 %'
+    rango_descuento  NVARCHAR(30)   NOT NULL,   -- Sin descuento / Bajo / Medio / Alto
+    tiene_descuento  NVARCHAR(2)    NOT NULL,   -- Sí / No
+    CONSTRAINT pk_dim_descuento PRIMARY KEY (descuento_key),
+    CONSTRAINT uq_dim_descuento_pct UNIQUE (descuento_pct)
+);
+
+-- Dimensión Estado de envío (junk dimension: combina indicadores de logística)
+-- 9 combinaciones posibles de estado + cumplimiento + rango de días de despacho
+CREATE TABLE dbo.dim_estado_envio (
+    estado_envio_key  INT IDENTITY(1,1) NOT NULL,
+    estado_envio      NVARCHAR(10)   NOT NULL,   -- Enviado / Pendiente
+    cumplimiento      NVARCHAR(10)   NOT NULL,   -- A tiempo / Tarde / Pendiente
+    rango_despacho    NVARCHAR(20)   NOT NULL,   -- 0-7 días / 8-14 días / 15-28 días / Más de 28 días / Sin enviar
+    CONSTRAINT pk_dim_estado_envio PRIMARY KEY (estado_envio_key),
+    CONSTRAINT uq_dim_estado_envio UNIQUE (estado_envio, cumplimiento, rango_despacho)
+);
 GO
 
 
@@ -108,6 +133,7 @@ CREATE TABLE dbo.fact_ventas (
     producto_key       INT            NOT NULL,
     empleado_key       INT            NOT NULL,
     transportista_key  INT            NOT NULL,
+    descuento_key      INT            NOT NULL,
     -- Medidas
     cantidad           INT            NOT NULL,
     precio_unitario    DECIMAL(10,2)  NOT NULL,   -- precio histórico de la venta
@@ -121,7 +147,8 @@ CREATE TABLE dbo.fact_ventas (
     CONSTRAINT fk_ventas_cliente       FOREIGN KEY (cliente_key)       REFERENCES dbo.dim_cliente (cliente_key),
     CONSTRAINT fk_ventas_producto      FOREIGN KEY (producto_key)      REFERENCES dbo.dim_producto (producto_key),
     CONSTRAINT fk_ventas_empleado      FOREIGN KEY (empleado_key)      REFERENCES dbo.dim_empleado (empleado_key),
-    CONSTRAINT fk_ventas_transportista FOREIGN KEY (transportista_key) REFERENCES dbo.dim_transportista (transportista_key)
+    CONSTRAINT fk_ventas_transportista FOREIGN KEY (transportista_key) REFERENCES dbo.dim_transportista (transportista_key),
+    CONSTRAINT fk_ventas_descuento     FOREIGN KEY (descuento_key)     REFERENCES dbo.dim_descuento (descuento_key)
 );
 
 -- Hechos de pedidos (logística y totales por pedido)
@@ -134,7 +161,7 @@ CREATE TABLE dbo.fact_pedidos (
     cliente_key          INT            NOT NULL,
     empleado_key         INT            NOT NULL,
     transportista_key    INT            NOT NULL,
-    estado_envio         NVARCHAR(10)   NOT NULL,   -- Enviado / Pendiente
+    estado_envio_key     INT            NOT NULL,
     -- Medidas
     flete                DECIMAL(10,2)  NOT NULL,
     lineas               INT            NOT NULL,   -- cantidad de productos distintos en el pedido
@@ -147,13 +174,14 @@ CREATE TABLE dbo.fact_pedidos (
     CONSTRAINT fk_pedidos_fecha_envio     FOREIGN KEY (fecha_envio_key)     REFERENCES dbo.dim_tiempo (tiempo_key),
     CONSTRAINT fk_pedidos_cliente         FOREIGN KEY (cliente_key)         REFERENCES dbo.dim_cliente (cliente_key),
     CONSTRAINT fk_pedidos_empleado        FOREIGN KEY (empleado_key)        REFERENCES dbo.dim_empleado (empleado_key),
-    CONSTRAINT fk_pedidos_transportista   FOREIGN KEY (transportista_key)   REFERENCES dbo.dim_transportista (transportista_key)
+    CONSTRAINT fk_pedidos_transportista   FOREIGN KEY (transportista_key)   REFERENCES dbo.dim_transportista (transportista_key),
+    CONSTRAINT fk_pedidos_estado_envio    FOREIGN KEY (estado_envio_key)    REFERENCES dbo.dim_estado_envio (estado_envio_key)
 );
 GO
 
 
 -- ---------------------------------------------------------------------
--- Verificación: deben aparecer 7 tablas
+-- Verificación: deben aparecer 9 tablas
 -- ---------------------------------------------------------------------
 SELECT TABLE_NAME
 FROM INFORMATION_SCHEMA.TABLES
