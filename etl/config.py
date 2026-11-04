@@ -141,3 +141,40 @@ def estandarizar_pais(columna: str) -> Column:
     for abreviado, completo in PAISES_ESTANDAR.items():
         resultado = F.when(pais == abreviado, F.lit(completo)).otherwise(resultado)
     return resultado
+
+
+# ---------------------------------------------------------------------
+# Utilidades para las tablas de hechos
+# ---------------------------------------------------------------------
+def fecha_key(columna: str) -> Column:
+    """Fecha -> llave de dim_tiempo en formato AAAAMMDD (NULL si la fecha es nula)."""
+    return F.date_format(F.col(columna), "yyyyMMdd").cast("int")
+
+
+def buscar_llave(
+    hechos: DataFrame,
+    dimension: DataFrame,
+    llaves_negocio: str | list[str],
+    llave_sustituta: str,
+    tabla: str,
+) -> DataFrame:
+    """Lookup de llave sustituta: agrega `llave_sustituta` de la dimensión a los hechos.
+
+    Se une por la(s) llave(s) de negocio, que deben llamarse igual en ambos
+    DataFrames. Usa LEFT JOIN y, si alguna fila no encuentra su llave, detiene
+    el ETL con un mensaje claro en vez de perder filas sin avisar (un INNER JOIN
+    las descartaría y el error solo se vería en la validación).
+    """
+    llaves = [llaves_negocio] if isinstance(llaves_negocio, str) else llaves_negocio
+    resultado = hechos.join(
+        dimension.select(*llaves, llave_sustituta), on=llaves, how="left"
+    )
+    huerfanas = resultado.filter(F.col(llave_sustituta).isNull())
+    faltantes = huerfanas.count()
+    if faltantes:
+        ejemplos = [tuple(fila) for fila in huerfanas.select(*llaves).distinct().limit(5).collect()]
+        raise ValueError(
+            f"{tabla}: {faltantes} filas sin {llave_sustituta} "
+            f"(no existen en la dimensión: {ejemplos})"
+        )
+    return resultado
