@@ -218,3 +218,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Excel: archivos de bloqueo mientras el libro está abierto
+~$*
