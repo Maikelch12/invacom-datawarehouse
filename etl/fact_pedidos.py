@@ -1,3 +1,4 @@
+
 """Hechos de pedidos: orders + líneas calculadas + dimensiones -> fact_pedidos.
 
 Granularidad: una fila por pedido -> 830 filas. Guarda las medidas que
@@ -12,6 +13,7 @@ from config import buscar_llave, fecha_key, limpiar_texto
 from dim_estado_envio import columnas_estado
 from fact_ventas import calcular_lineas
 
+# Nombre de la tabla de destino
 TABLA = "fact_pedidos"
 
 
@@ -25,6 +27,8 @@ def transformar(
       entregado_a_tiempo quedan en NULL y apuntan a Pendiente / Sin enviar.
     - entregado_a_tiempo: 1 si shipped_date <= required_date, 0 si es posterior.
     """
+
+    # Agrupa las líneas y calcula los totales de cada pedido
     totales = (
         calcular_lineas(fuente)
         .groupBy("pedido_id")
@@ -34,8 +38,10 @@ def transformar(
         )
     )
 
+    # Identifica los pedidos que ya fueron enviados
     enviado = F.col("shipped_date").isNotNull()
 
+    # Obtiene los pedidos y calcula sus medidas de logística
     pedidos = (
         fuente["orders"]
         .select(
@@ -48,18 +54,25 @@ def transformar(
             F.col("shipper_id").cast("int").alias("transportista_id"),
             F.col("freight").cast("decimal(10,2)").alias("flete"),
             F.datediff("shipped_date", "order_date").alias("dias_despacho"),
+
+            # Determina si el pedido fue entregado a tiempo
             F.when(enviado & (F.col("shipped_date") <= F.col("required_date")), F.lit(1))
              .when(enviado, F.lit(0))
              .cast("int")
              .alias("entregado_a_tiempo"),
+
+            # Agrega la información del estado de envío
             # estado_envio, cumplimiento, rango_despacho (mismas reglas que la dimensión)
             *columnas_estado(),
         )
+
+        # Une los pedidos con sus totales
         # Todo pedido tiene al menos una línea (docs/02 §2.3)
         .join(totales, "pedido_id", "inner")
         .cache()
     )
 
+    # Busca las llaves correspondientes en las dimensiones
     pedidos = buscar_llave(pedidos, dw["dim_cliente"], "cliente_id", "cliente_key", TABLA)
     pedidos = buscar_llave(pedidos, dw["dim_empleado"], "empleado_id", "empleado_key", TABLA)
     pedidos = buscar_llave(
@@ -73,6 +86,7 @@ def transformar(
         TABLA,
     )
 
+    # Selecciona las columnas finales de la tabla fact_pedidos
     return pedidos.select(
         "pedido_id",
         "fecha_pedido_key",
