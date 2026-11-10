@@ -1,9 +1,10 @@
-"""Dimensión Cliente: customers -> dim_cliente."""
+# Dimensión Cliente: customers -> dim_cliente.
 
 from pyspark.sql import DataFrame, SparkSession
 
 from config import estandarizar_pais, limpiar_texto
 
+# Nombre de la tabla de destino
 TABLA = "dim_cliente"
 
 
@@ -13,8 +14,11 @@ def transformar(spark: SparkSession, fuente: dict[str, DataFrame]) -> DataFrame:
     Se cargan los 91 clientes, incluidos los 2 que nunca compraron (H9).
     contact_name se descarta porque no responde ninguna pregunta de negocio.
     """
+
+    # Obtiene los datos de la tabla customers
     customers = fuente["customers"]
 
+    # Selecciona las columnas necesarias y aplica las transformaciones
     return customers.select(
         limpiar_texto("customer_id").alias("cliente_id"),
         limpiar_texto("company_name").alias("empresa"),
