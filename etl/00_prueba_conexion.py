@@ -4,15 +4,19 @@ import sys
 from dotenv import load_dotenv
 from pyspark.sql import SparkSession
 
+# Carga las variables de configuración del archivo .env
 load_dotenv()
+
+# Configura Python para que PySpark utilice la misma versión
 os.environ["PYSPARK_PYTHON"] = sys.executable
 os.environ["PYSPARK_DRIVER_PYTHON"] = sys.executable
 
-# Windows: Spark necesita winutils.exe y hadoop.dll (ver README)
+# Configura las rutas necesarias de Hadoop en Windows
 hadoop_home = os.getenv("HADOOP_HOME", r"C:\hadoop")
 os.environ["HADOOP_HOME"] = hadoop_home
 os.environ["PATH"] = os.path.join(hadoop_home, "bin") + os.pathsep + os.environ["PATH"]
 
+# Verifica que los archivos necesarios de Hadoop existan
 print("=== Revisión del entorno ===")
 print("HADOOP_HOME =", hadoop_home)
 for archivo in ("winutils.exe", "hadoop.dll"):
@@ -21,7 +25,7 @@ for archivo in ("winutils.exe", "hadoop.dll"):
         sys.exit(f"FALTA {ruta}: descárguenlo antes de continuar.")
     print("OK", ruta)
 
-# Spark descarga los drivers JDBC automáticamente la primera vez
+# Crea la sesión de Spark y configura los controladores JDBC
 spark = (
     SparkSession.builder
     .appName("Invacom - prueba de conexion")
@@ -35,7 +39,7 @@ spark = (
     .getOrCreate()
 )
 
-# Origen: PostgreSQL
+# Configura la conexión a la base de datos PostgreSQL
 PG_URL = (
     f"jdbc:postgresql://{os.getenv('PG_HOST')}:{os.getenv('PG_PORT')}/"
     f"{os.getenv('PG_DB')}"
@@ -46,7 +50,7 @@ PG_PROPS = {
     "driver": "org.postgresql.Driver",
 }
 
-# Destino: SQL Server
+# Configura la conexión a la base de datos SQL Server
 SQL_URL = (
     f"jdbc:sqlserver://{os.getenv('MS_HOST')}:{os.getenv('MS_PORT')};"
     f"databaseName={os.getenv('MS_DB')};"
@@ -58,14 +62,18 @@ SQL_PROPS = {
     "driver": "com.microsoft.sqlserver.jdbc.SQLServerDriver",
 }
 
+# Lee la tabla shippers desde PostgreSQL y muestra sus datos
 print("=== Leyendo shippers desde PostgreSQL ===")
 df = spark.read.jdbc(PG_URL, "shippers", properties=PG_PROPS)
 df.show()
 
+# Guarda los datos en SQL Server en la tabla prueba_shippers
 print("=== Escribiendo en SQL Server ===")
 df.write.jdbc(SQL_URL, "prueba_shippers", mode="overwrite", properties=SQL_PROPS)
 
+# Comprueba que los datos se hayan guardado correctamente
 print("=== Leyendo de vuelta desde SQL Server ===")
 spark.read.jdbc(SQL_URL, "prueba_shippers", properties=SQL_PROPS).show()
 
+# Cierra la sesión de Spark
 spark.stop()
