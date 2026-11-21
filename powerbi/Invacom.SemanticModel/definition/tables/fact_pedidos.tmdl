@@ -26,6 +26,7 @@ table fact_pedidos
 
 	column fecha_requerida_key
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: f81d6550-f394-45f6-9962-1e006c4f1e9e
 		summarizeBy: sum
@@ -37,6 +38,7 @@ table fact_pedidos
 
 	column fecha_envio_key
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: 129fe7df-5437-47d4-88f3-b19e2c582cd5
 		summarizeBy: sum

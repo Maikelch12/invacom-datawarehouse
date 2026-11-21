@@ -3,6 +3,7 @@ table fact_ventas
 
 	column venta_key
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: fc32fd73-3df2-44b1-a8aa-4f18e3fb2993
 		summarizeBy: sum
