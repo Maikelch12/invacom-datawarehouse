@@ -5,6 +5,68 @@ table _Medidas
 		formatString: #,0.00
 		lineageTag: 30acd6c5-507e-4eee-8fb1-929d603dccb2
 
+	measure 'Ventas Netas AA' =
+			
+			CALCULATE (
+			    [Ventas Netas],
+			    SAMEPERIODLASTYEAR ( dim_tiempo[fecha] )
+			)
+		formatString: #,0.00
+		lineageTag: 75d8256a-d083-4fb0-ac09-47cbd59b756e
+
+	measure 'Crecimiento YoY %' =
+			
+			VAR VentasActual = [Ventas Netas]
+			VAR VentasAnioAnterior = [Ventas Netas AA]
+			RETURN
+			    DIVIDE ( VentasActual - VentasAnioAnterior, VentasAnioAnterior )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 9266f89e-53de-44c8-aca9-e882e45b7082
+
+	measure 'Ventas Mes Anterior' =
+			
+			CALCULATE (
+			    [Ventas Netas],
+			    PREVIOUSMONTH ( dim_tiempo[fecha] )
+			)
+		formatString: #,0.00
+		lineageTag: 3745852c-5b80-44c6-9ea9-1eac6a17587f
+
+	measure 'Variación MoM %' =
+			
+			VAR VentasActual = [Ventas Netas]
+			VAR VentasMesAnterior = [Ventas Mes Anterior]
+			RETURN
+			    DIVIDE ( VentasActual - VentasMesAnterior, VentasMesAnterior )
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 48528466-eef3-43ed-a628-fa7d91684660
+
+	measure 'Color YoY' =
+			
+			VAR Valor = [Crecimiento YoY %]
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        ISBLANK ( Valor ), "#9CA3AF",
+			        Valor >= 0.15, "#15803D",
+			        Valor >= 0, "#B45309",
+			        "#B91C1C"
+			    )
+		lineageTag: f6b053cf-06a0-4e07-984f-c5911444b07e
+
+	measure 'Color MoM' =
+			
+			VAR Valor = [Variación MoM %]
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        ISBLANK ( Valor ), "#9CA3AF",
+			        Valor >= 0, "#15803D",
+			        Valor >= -0.10, "#B45309",
+			        "#B91C1C"
+			    )
+		lineageTag: 7b43363a-8077-4388-bc57-c80cbdf3450c
+
 	partition _Medidas = m
 		mode: import
 		source =
