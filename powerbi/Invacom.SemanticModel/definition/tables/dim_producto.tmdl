@@ -1,5 +1,4 @@
 table dim_producto
-	isHidden
 	lineageTag: 7da07c64-ae80-4643-9a18-41efc2c62a72
 
 	column producto_key
@@ -16,7 +15,6 @@ table dim_producto
 
 	column producto_id
 		dataType: int64
-		isHidden
 		formatString: 0
 		lineageTag: 2175afc4-1a26-48d2-8b92-3cb48796448a
 		summarizeBy: none
@@ -28,7 +26,6 @@ table dim_producto
 
 	column producto
 		dataType: string
-		isHidden
 		lineageTag: 09852777-9100-47bc-8ee9-c205d5e405b9
 		summarizeBy: none
 		sourceColumn: producto
@@ -39,7 +36,6 @@ table dim_producto
 
 	column cantidad_por_unidad
 		dataType: string
-		isHidden
 		lineageTag: 8cd3f74b-d3d5-403e-83a3-027bc58f1d8a
 		summarizeBy: none
 		sourceColumn: cantidad_por_unidad
@@ -50,7 +46,6 @@ table dim_producto
 
 	column categoria
 		dataType: string
-		isHidden
 		lineageTag: 441629c9-b357-4f79-b53e-e7b545f5fe92
 		summarizeBy: none
 		sourceColumn: categoria
@@ -61,7 +56,6 @@ table dim_producto
 
 	column precio_lista
 		dataType: double
-		isHidden
 		lineageTag: 49533fb5-fe71-4f57-864f-c03130a4ca61
 		summarizeBy: none
 		sourceColumn: precio_lista
@@ -74,7 +68,6 @@ table dim_producto
 
 	column descontinuado
 		dataType: string
-		isHidden
 		lineageTag: 16e65b65-5421-406c-bb39-b28681909771
 		summarizeBy: none
 		sourceColumn: descontinuado

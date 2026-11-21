@@ -1,5 +1,4 @@
 table dim_empleado
-	isHidden
 	lineageTag: 4209a884-28cc-46e5-bc71-3adc8d7a35c2
 
 	column empleado_key
@@ -16,7 +15,6 @@ table dim_empleado
 
 	column empleado_id
 		dataType: int64
-		isHidden
 		formatString: 0
 		lineageTag: b4f75fe8-9a25-474b-9372-2e636c7472d3
 		summarizeBy: sum
@@ -28,7 +26,6 @@ table dim_empleado
 
 	column empleado
 		dataType: string
-		isHidden
 		lineageTag: f75eae05-c4bd-4889-acea-917b5142a3bb
 		summarizeBy: none
 		sourceColumn: empleado
@@ -39,7 +36,6 @@ table dim_empleado
 
 	column cargo
 		dataType: string
-		isHidden
 		lineageTag: 530888b9-3e8a-4765-a29d-659230990c35
 		summarizeBy: none
 		sourceColumn: cargo
@@ -50,7 +46,6 @@ table dim_empleado
 
 	column ciudad
 		dataType: string
-		isHidden
 		lineageTag: 9e5b672e-871a-4930-9812-5d67eb352b32
 		summarizeBy: none
 		sourceColumn: ciudad
@@ -61,7 +56,6 @@ table dim_empleado
 
 	column pais
 		dataType: string
-		isHidden
 		lineageTag: 95b4597f-70f4-498e-8079-033c27d33933
 		summarizeBy: none
 		sourceColumn: pais
@@ -72,7 +66,6 @@ table dim_empleado
 
 	column jefe
 		dataType: string
-		isHidden
 		lineageTag: 43eb0c34-16d5-4a87-b818-327cabd6518d
 		summarizeBy: none
 		sourceColumn: jefe

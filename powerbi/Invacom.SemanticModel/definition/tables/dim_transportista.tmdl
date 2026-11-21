@@ -1,5 +1,4 @@
 table dim_transportista
-	isHidden
 	lineageTag: 05bc4d8a-ca8e-43de-a2de-ea0867b9dcce
 
 	column transportista_key
@@ -16,7 +15,6 @@ table dim_transportista
 
 	column transportista_id
 		dataType: int64
-		isHidden
 		formatString: 0
 		lineageTag: 3a6591fb-f271-41bc-8fd9-b8958c5e4dc2
 		summarizeBy: sum
@@ -28,7 +26,6 @@ table dim_transportista
 
 	column transportista
 		dataType: string
-		isHidden
 		lineageTag: 549acbbc-1947-451a-a760-aafd18852d32
 		summarizeBy: none
 		sourceColumn: transportista
