@@ -1,0 +1,190 @@
+table fact_ventas
+	isHidden
+	lineageTag: a408ba81-4445-4144-9d20-1c572ea49090
+
+	column venta_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: fc32fd73-3df2-44b1-a8aa-4f18e3fb2993
+		summarizeBy: sum
+		sourceColumn: venta_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column pedido_id
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: add8593f-5cfa-4dea-80b7-f6cdcb975aae
+		summarizeBy: sum
+		sourceColumn: pedido_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_pedido_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ac39bd2c-feae-4b32-a081-0d3549c7d5d5
+		summarizeBy: none
+		sourceColumn: fecha_pedido_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cliente_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ce8cdd6e-1ac4-4034-98bd-d244c9ad1a88
+		summarizeBy: none
+		sourceColumn: cliente_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column producto_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: dc3e52f8-e617-4fdc-a25d-4199a482b117
+		summarizeBy: none
+		sourceColumn: producto_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column empleado_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 68db0247-5164-437c-85d5-95a1a4fc8438
+		summarizeBy: none
+		sourceColumn: empleado_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column transportista_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2543548f-b7db-475a-bef2-22a0fb784a1a
+		summarizeBy: none
+		sourceColumn: transportista_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column descuento_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 99ea0cb8-a9e4-4a8c-b5f7-eeb884c25766
+		summarizeBy: none
+		sourceColumn: descuento_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cantidad
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: da311a8e-48f5-4d6e-baa8-92860642acc8
+		summarizeBy: sum
+		sourceColumn: cantidad
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column precio_unitario
+		dataType: double
+		isHidden
+		lineageTag: ce9df925-d44a-441e-8e0f-cb212e9e2fb7
+		summarizeBy: sum
+		sourceColumn: precio_unitario
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column descuento_pct
+		dataType: double
+		isHidden
+		lineageTag: 5bc456f0-2a88-414c-9fb5-6d8d690dc6fc
+		summarizeBy: sum
+		sourceColumn: descuento_pct
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column monto_bruto
+		dataType: double
+		isHidden
+		lineageTag: e905d74f-43f5-4eaa-91c4-ce822221822d
+		summarizeBy: sum
+		sourceColumn: monto_bruto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column monto_descuento
+		dataType: double
+		isHidden
+		lineageTag: cbbcb877-060a-42cb-9bb4-0337a3127b3e
+		summarizeBy: sum
+		sourceColumn: monto_descuento
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column monto_neto
+		dataType: double
+		isHidden
+		lineageTag: 112c5f76-44b9-415a-b7ae-fafb64759bff
+		summarizeBy: sum
+		sourceColumn: monto_neto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition fact_ventas = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database("localhost", "InvacomDW"),
+				  #"Navegación 1" = Origen{[Schema = "dbo", Item = "fact_ventas"]}[Data]
+				in
+				  #"Navegación 1"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

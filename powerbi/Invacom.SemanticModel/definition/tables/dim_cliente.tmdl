@@ -1,0 +1,84 @@
+table dim_cliente
+	isHidden
+	lineageTag: 1f439330-0d5e-41a0-a11f-58d20601e013
+
+	column cliente_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 5ee332b7-62ae-45a7-b8e3-14e53bbd3409
+		summarizeBy: none
+		sourceColumn: cliente_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cliente_id
+		dataType: string
+		isHidden
+		lineageTag: 3ca3e71a-bc96-4fa1-b1ae-214c94bfca4e
+		summarizeBy: none
+		sourceColumn: cliente_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column empresa
+		dataType: string
+		isHidden
+		lineageTag: 12e53b38-0f90-4b64-84d4-829a52c16b17
+		summarizeBy: none
+		sourceColumn: empresa
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cargo_contacto
+		dataType: string
+		isHidden
+		lineageTag: 802edff1-7b40-4431-9cce-66593e675c89
+		summarizeBy: none
+		sourceColumn: cargo_contacto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ciudad
+		dataType: string
+		isHidden
+		lineageTag: 5cc381c2-2271-47bf-9050-bb1f650faff0
+		summarizeBy: none
+		sourceColumn: ciudad
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column pais
+		dataType: string
+		isHidden
+		lineageTag: 6bff1e8d-b243-4853-a0e5-6e3eee1b25ba
+		summarizeBy: none
+		sourceColumn: pais
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_cliente = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database("localhost", "InvacomDW"),
+				  #"Navegación 1" = Origen{[Schema = "dbo", Item = "dim_cliente"]}[Data]
+				in
+				  #"Navegación 1"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

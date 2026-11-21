@@ -1,0 +1,80 @@
+relationship 9f3c9bba-2fc0-4ed6-9903-e3946232fe67
+	fromColumn: fact_pedidos.cliente_key
+	toColumn: dim_cliente.cliente_key
+
+	annotation PBI_IsFromSource = FS
+
+relationship e3fd1ebe-d6cf-410c-ab6b-849a4d6b6b3d
+	fromColumn: fact_pedidos.empleado_key
+	toColumn: dim_empleado.empleado_key
+
+	annotation PBI_IsFromSource = FS
+
+relationship ab7d3381-3670-4603-8b2f-dad99eadd9b6
+	fromColumn: fact_pedidos.estado_envio_key
+	toColumn: dim_estado_envio.estado_envio_key
+
+	annotation PBI_IsFromSource = FS
+
+relationship dafb55cf-07ce-43b5-a08d-d72797c96a9d
+	isActive: false
+	fromColumn: fact_pedidos.fecha_envio_key
+	toColumn: dim_tiempo.tiempo_key
+
+	annotation PBI_IsFromSource = FS
+
+relationship 22e24de8-5608-47f0-8b8a-f1009a569e3e
+	fromColumn: fact_pedidos.fecha_pedido_key
+	toColumn: dim_tiempo.tiempo_key
+
+	annotation PBI_IsFromSource = FS
+
+relationship 526ce190-afa3-4cf3-a1ff-ff77dde1dfd6
+	isActive: false
+	fromColumn: fact_pedidos.fecha_requerida_key
+	toColumn: dim_tiempo.tiempo_key
+
+	annotation PBI_IsFromSource = FS
+
+relationship 79e2f78a-0fbc-4a9f-8c2a-51b2775afa13
+	fromColumn: fact_pedidos.transportista_key
+	toColumn: dim_transportista.transportista_key
+
+	annotation PBI_IsFromSource = FS
+
+relationship 8b9e9a16-9004-4ea6-9753-fa3a2a81f3f6
+	fromColumn: fact_ventas.cliente_key
+	toColumn: dim_cliente.cliente_key
+
+	annotation PBI_IsFromSource = FS
+
+relationship d9b30bb2-1d11-488a-a0bd-c0daf74a9858
+	fromColumn: fact_ventas.descuento_key
+	toColumn: dim_descuento.descuento_key
+
+	annotation PBI_IsFromSource = FS
+
+relationship a73d87b3-68ba-4a66-88d9-591d18d1a708
+	fromColumn: fact_ventas.empleado_key
+	toColumn: dim_empleado.empleado_key
+
+	annotation PBI_IsFromSource = FS
+
+relationship f2ae77b3-8267-4245-a338-33b8c39979ec
+	fromColumn: fact_ventas.producto_key
+	toColumn: dim_producto.producto_key
+
+	annotation PBI_IsFromSource = FS
+
+relationship 7603e846-a251-4d07-aaa6-81b7238eac5b
+	fromColumn: fact_ventas.fecha_pedido_key
+	toColumn: dim_tiempo.tiempo_key
+
+	annotation PBI_IsFromSource = FS
+
+relationship 0c39bc94-217b-4b57-ab27-a7629c93261e
+	fromColumn: fact_ventas.transportista_key
+	toColumn: dim_transportista.transportista_key
+
+	annotation PBI_IsFromSource = FS
+

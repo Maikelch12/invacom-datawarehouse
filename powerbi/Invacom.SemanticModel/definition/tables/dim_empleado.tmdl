@@ -1,0 +1,96 @@
+table dim_empleado
+	isHidden
+	lineageTag: 4209a884-28cc-46e5-bc71-3adc8d7a35c2
+
+	column empleado_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 6f0c55fe-0f25-4a85-93cc-51f7f6e5b989
+		summarizeBy: none
+		sourceColumn: empleado_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column empleado_id
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b4f75fe8-9a25-474b-9372-2e636c7472d3
+		summarizeBy: sum
+		sourceColumn: empleado_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column empleado
+		dataType: string
+		isHidden
+		lineageTag: f75eae05-c4bd-4889-acea-917b5142a3bb
+		summarizeBy: none
+		sourceColumn: empleado
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cargo
+		dataType: string
+		isHidden
+		lineageTag: 530888b9-3e8a-4765-a29d-659230990c35
+		summarizeBy: none
+		sourceColumn: cargo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column ciudad
+		dataType: string
+		isHidden
+		lineageTag: 9e5b672e-871a-4930-9812-5d67eb352b32
+		summarizeBy: none
+		sourceColumn: ciudad
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column pais
+		dataType: string
+		isHidden
+		lineageTag: 95b4597f-70f4-498e-8079-033c27d33933
+		summarizeBy: none
+		sourceColumn: pais
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column jefe
+		dataType: string
+		isHidden
+		lineageTag: 43eb0c34-16d5-4a87-b818-327cabd6518d
+		summarizeBy: none
+		sourceColumn: jefe
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_empleado = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database("localhost", "InvacomDW"),
+				  #"Navegación 1" = Origen{[Schema = "dbo", Item = "dim_empleado"]}[Data]
+				in
+				  #"Navegación 1"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

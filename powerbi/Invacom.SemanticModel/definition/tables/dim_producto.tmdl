@@ -1,0 +1,98 @@
+table dim_producto
+	isHidden
+	lineageTag: 7da07c64-ae80-4643-9a18-41efc2c62a72
+
+	column producto_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 877e1f61-c319-4fc1-8b33-b8dd807ca1df
+		summarizeBy: none
+		sourceColumn: producto_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column producto_id
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2175afc4-1a26-48d2-8b92-3cb48796448a
+		summarizeBy: none
+		sourceColumn: producto_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column producto
+		dataType: string
+		isHidden
+		lineageTag: 09852777-9100-47bc-8ee9-c205d5e405b9
+		summarizeBy: none
+		sourceColumn: producto
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cantidad_por_unidad
+		dataType: string
+		isHidden
+		lineageTag: 8cd3f74b-d3d5-403e-83a3-027bc58f1d8a
+		summarizeBy: none
+		sourceColumn: cantidad_por_unidad
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column categoria
+		dataType: string
+		isHidden
+		lineageTag: 441629c9-b357-4f79-b53e-e7b545f5fe92
+		summarizeBy: none
+		sourceColumn: categoria
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column precio_lista
+		dataType: double
+		isHidden
+		lineageTag: 49533fb5-fe71-4f57-864f-c03130a4ca61
+		summarizeBy: none
+		sourceColumn: precio_lista
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column descontinuado
+		dataType: string
+		isHidden
+		lineageTag: 16e65b65-5421-406c-bb39-b28681909771
+		summarizeBy: none
+		sourceColumn: descontinuado
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_producto = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database("localhost", "InvacomDW"),
+				  #"Navegación 1" = Origen{[Schema = "dbo", Item = "dim_producto"]}[Data]
+				in
+				  #"Navegación 1"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

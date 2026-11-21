@@ -1,0 +1,16 @@
+{
+  "name": "Invacom DW",
+  "dataColors": ["#1D4ED8", "#C2410C", "#0E7490", "#7C3AED", "#15803D", "#B45309", "#BE185D", "#64748B"],
+  "background": "#FFFFFF",
+  "foreground": "#1F2937",
+  "tableAccent": "#1D4ED8",
+  "good": "#15803D",
+  "neutral": "#B45309",
+  "bad": "#B91C1C",
+  "textClasses": {
+    "callout": { "fontFace": "Segoe UI Semibold", "fontSize": 28, "color": "#1D4ED8" },
+    "title":   { "fontFace": "Segoe UI Semibold", "fontSize": 14, "color": "#111827" },
+    "header":  { "fontFace": "Segoe UI Semibold", "fontSize": 12, "color": "#111827" },
+    "label":   { "fontFace": "Segoe UI", "fontSize": 10, "color": "#374151" }
+  }
+}
