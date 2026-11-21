@@ -1,10 +1,8 @@
 table fact_ventas
-	isHidden
 	lineageTag: a408ba81-4445-4144-9d20-1c572ea49090
 
 	column venta_key
 		dataType: int64
-		isHidden
 		formatString: 0
 		lineageTag: fc32fd73-3df2-44b1-a8aa-4f18e3fb2993
 		summarizeBy: sum
@@ -16,7 +14,6 @@ table fact_ventas
 
 	column pedido_id
 		dataType: int64
-		isHidden
 		formatString: 0
 		lineageTag: add8593f-5cfa-4dea-80b7-f6cdcb975aae
 		summarizeBy: sum
@@ -100,7 +97,6 @@ table fact_ventas
 
 	column cantidad
 		dataType: int64
-		isHidden
 		formatString: 0
 		lineageTag: da311a8e-48f5-4d6e-baa8-92860642acc8
 		summarizeBy: sum
@@ -112,7 +108,6 @@ table fact_ventas
 
 	column precio_unitario
 		dataType: double
-		isHidden
 		lineageTag: ce9df925-d44a-441e-8e0f-cb212e9e2fb7
 		summarizeBy: sum
 		sourceColumn: precio_unitario
@@ -125,7 +120,6 @@ table fact_ventas
 
 	column descuento_pct
 		dataType: double
-		isHidden
 		lineageTag: 5bc456f0-2a88-414c-9fb5-6d8d690dc6fc
 		summarizeBy: sum
 		sourceColumn: descuento_pct
@@ -138,7 +132,6 @@ table fact_ventas
 
 	column monto_bruto
 		dataType: double
-		isHidden
 		lineageTag: e905d74f-43f5-4eaa-91c4-ce822221822d
 		summarizeBy: sum
 		sourceColumn: monto_bruto
@@ -151,7 +144,6 @@ table fact_ventas
 
 	column monto_descuento
 		dataType: double
-		isHidden
 		lineageTag: cbbcb877-060a-42cb-9bb4-0337a3127b3e
 		summarizeBy: sum
 		sourceColumn: monto_descuento
@@ -164,7 +156,6 @@ table fact_ventas
 
 	column monto_neto
 		dataType: double
-		isHidden
 		lineageTag: 112c5f76-44b9-415a-b7ae-fafb64759bff
 		summarizeBy: sum
 		sourceColumn: monto_neto

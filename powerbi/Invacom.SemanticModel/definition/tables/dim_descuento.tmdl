@@ -1,5 +1,4 @@
 table dim_descuento
-	isHidden
 	lineageTag: 3648872a-d023-4d37-b4e8-847d7fbdf53a
 
 	column descuento_key
@@ -16,7 +15,6 @@ table dim_descuento
 
 	column descuento_pct
 		dataType: double
-		isHidden
 		lineageTag: a31cdc44-1a90-4eb4-88a4-90e19be3b98c
 		summarizeBy: none
 		sourceColumn: descuento_pct
@@ -29,7 +27,6 @@ table dim_descuento
 
 	column descuento_texto
 		dataType: string
-		isHidden
 		lineageTag: 2c73dfa3-8bbd-46e6-bf78-84754d800129
 		summarizeBy: none
 		sourceColumn: descuento_texto
@@ -40,7 +37,6 @@ table dim_descuento
 
 	column rango_descuento
 		dataType: string
-		isHidden
 		lineageTag: 2429380c-c5d4-4475-8eee-dac19b2b90b7
 		summarizeBy: none
 		sourceColumn: rango_descuento
@@ -51,7 +47,6 @@ table dim_descuento
 
 	column tiene_descuento
 		dataType: string
-		isHidden
 		lineageTag: f0ab1a34-1001-4e4c-8101-4054e3e7f4d3
 		summarizeBy: none
 		sourceColumn: tiene_descuento

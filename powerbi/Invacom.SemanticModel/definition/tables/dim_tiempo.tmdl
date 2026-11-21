@@ -1,5 +1,4 @@
 table dim_tiempo
-	isHidden
 	lineageTag: 65f95ea1-33ae-4939-870a-fe1e88115247
 	dataCategory: Time
 
@@ -17,7 +16,6 @@ table dim_tiempo
 
 	column fecha
 		dataType: dateTime
-		isHidden
 		isKey
 		formatString: Long Date
 		lineageTag: c0fbe900-b9da-4d84-9cc4-09da9ca38b1b
@@ -32,7 +30,6 @@ table dim_tiempo
 
 	column anio
 		dataType: int64
-		isHidden
 		formatString: 0
 		lineageTag: d4f24935-1f64-4335-be91-89bb0ee371b6
 		summarizeBy: sum
@@ -44,7 +41,6 @@ table dim_tiempo
 
 	column trimestre
 		dataType: int64
-		isHidden
 		formatString: 0
 		lineageTag: 8f6b1636-6f7b-4295-825e-437541c1919b
 		summarizeBy: sum
@@ -56,7 +52,6 @@ table dim_tiempo
 
 	column nombre_trimestre
 		dataType: string
-		isHidden
 		lineageTag: 00322515-c12c-4da7-8855-a572ebb6b125
 		summarizeBy: none
 		sourceColumn: nombre_trimestre
@@ -67,7 +62,6 @@ table dim_tiempo
 
 	column mes
 		dataType: int64
-		isHidden
 		formatString: 0
 		lineageTag: c4025002-88d0-4c2c-8870-2c3249245b73
 		summarizeBy: sum
@@ -79,7 +73,6 @@ table dim_tiempo
 
 	column nombre_mes
 		dataType: string
-		isHidden
 		lineageTag: 52ca529e-53ec-4b38-8505-5ac7703307dc
 		summarizeBy: none
 		sourceColumn: nombre_mes
@@ -93,7 +86,6 @@ table dim_tiempo
 
 	column anio_mes
 		dataType: string
-		isHidden
 		lineageTag: 321d4f0c-9fad-4a4f-ac7e-9836a53a06bb
 		summarizeBy: none
 		sourceColumn: anio_mes
@@ -104,7 +96,6 @@ table dim_tiempo
 
 	column dia
 		dataType: int64
-		isHidden
 		formatString: 0
 		lineageTag: 81b2df7b-0ea0-4981-b192-16a6011baed0
 		summarizeBy: sum
@@ -116,7 +107,6 @@ table dim_tiempo
 
 	column dia_semana
 		dataType: int64
-		isHidden
 		formatString: 0
 		lineageTag: 1f15dc8e-1ef8-4d65-94ad-bece168c76a3
 		summarizeBy: sum
@@ -128,7 +118,6 @@ table dim_tiempo
 
 	column nombre_dia
 		dataType: string
-		isHidden
 		lineageTag: 883cfac5-a601-4166-909a-0ce95fbe5744
 		summarizeBy: none
 		sourceColumn: nombre_dia
@@ -142,7 +131,6 @@ table dim_tiempo
 
 	column es_fin_de_semana
 		dataType: string
-		isHidden
 		lineageTag: 83c94fef-8f15-4d86-b4e5-0432fee52abc
 		summarizeBy: none
 		sourceColumn: es_fin_de_semana

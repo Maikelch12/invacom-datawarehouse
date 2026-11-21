@@ -26,7 +26,6 @@ table fact_pedidos
 
 	column fecha_requerida_key
 		dataType: int64
-		isHidden
 		formatString: 0
 		lineageTag: f81d6550-f394-45f6-9962-1e006c4f1e9e
 		summarizeBy: sum
@@ -38,7 +37,6 @@ table fact_pedidos
 
 	column fecha_envio_key
 		dataType: int64
-		isHidden
 		formatString: 0
 		lineageTag: 129fe7df-5437-47d4-88f3-b19e2c582cd5
 		summarizeBy: sum
@@ -98,7 +96,6 @@ table fact_pedidos
 
 	column flete
 		dataType: double
-		isHidden
 		lineageTag: 72b6bf7d-a077-47e5-9d78-16f6a24abdac
 		summarizeBy: sum
 		sourceColumn: flete
@@ -111,7 +108,6 @@ table fact_pedidos
 
 	column lineas
 		dataType: int64
-		isHidden
 		formatString: 0
 		lineageTag: 282cb486-c8ba-4d80-85ab-1aec094cd1f3
 		summarizeBy: sum
@@ -123,7 +119,6 @@ table fact_pedidos
 
 	column monto_neto_pedido
 		dataType: double
-		isHidden
 		lineageTag: f00569ec-f7a3-4a3b-9f55-58db86e5b479
 		summarizeBy: sum
 		sourceColumn: monto_neto_pedido
@@ -136,7 +131,6 @@ table fact_pedidos
 
 	column dias_despacho
 		dataType: int64
-		isHidden
 		formatString: 0
 		lineageTag: 627b8103-601a-46ca-b555-0fe02989e8ba
 		summarizeBy: sum
@@ -148,7 +142,6 @@ table fact_pedidos
 
 	column entregado_a_tiempo
 		dataType: int64
-		isHidden
 		formatString: 0
 		lineageTag: 59485152-9da5-49d1-ba4c-2e5a833b1bde
 		summarizeBy: sum

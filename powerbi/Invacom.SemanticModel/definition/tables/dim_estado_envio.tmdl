@@ -1,5 +1,4 @@
 table dim_estado_envio
-	isHidden
 	lineageTag: f8e3e0a8-f644-4014-b175-ce9d76c70437
 
 	column estado_envio_key
@@ -16,7 +15,6 @@ table dim_estado_envio
 
 	column estado_envio
 		dataType: string
-		isHidden
 		lineageTag: fc62f4dd-8316-4ed8-86c4-323ac7b9bcf4
 		summarizeBy: none
 		sourceColumn: estado_envio
@@ -27,7 +25,6 @@ table dim_estado_envio
 
 	column cumplimiento
 		dataType: string
-		isHidden
 		lineageTag: fb3f2cd9-b1d1-4bf0-8a46-e06b999e3910
 		summarizeBy: none
 		sourceColumn: cumplimiento
@@ -38,7 +35,6 @@ table dim_estado_envio
 
 	column rango_despacho
 		dataType: string
-		isHidden
 		lineageTag: 989b3b65-9b81-4a1f-b463-bdef15606271
 		summarizeBy: none
 		sourceColumn: rango_despacho
