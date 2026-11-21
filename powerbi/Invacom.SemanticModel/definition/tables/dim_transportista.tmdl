@@ -1,0 +1,52 @@
+table dim_transportista
+	isHidden
+	lineageTag: 05bc4d8a-ca8e-43de-a2de-ea0867b9dcce
+
+	column transportista_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3ea1162f-c9c2-4f2b-9294-d45d8fa4a6de
+		summarizeBy: none
+		sourceColumn: transportista_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column transportista_id
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 3a6591fb-f271-41bc-8fd9-b8958c5e4dc2
+		summarizeBy: sum
+		sourceColumn: transportista_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column transportista
+		dataType: string
+		isHidden
+		lineageTag: 549acbbc-1947-451a-a760-aafd18852d32
+		summarizeBy: none
+		sourceColumn: transportista
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_transportista = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database("localhost", "InvacomDW"),
+				  #"Navegación 1" = Origen{[Schema = "dbo", Item = "dim_transportista"]}[Data]
+				in
+				  #"Navegación 1"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+

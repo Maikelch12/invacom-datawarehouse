@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Invacom"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "8b086b1c-a40b-4076-af12-8343919e195f"
+  }
+}

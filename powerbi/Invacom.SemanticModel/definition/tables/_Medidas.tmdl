@@ -1,0 +1,18 @@
+table _Medidas
+	lineageTag: 0b544ef5-1190-4229-bf35-4e21f32ac5f9
+
+	measure 'Ventas Netas' = SUM ( fact_ventas[monto_neto] )
+		formatString: #,0.00
+		lineageTag: 30acd6c5-507e-4eee-8fb1-929d603dccb2
+
+	partition _Medidas = m
+		mode: import
+		source =
+				let
+				  Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Columna 1" = _t]),
+				    #"Columnas quitadas" = Table.RemoveColumns(Origen,{"Columna 1"})
+				in
+				  #"Columnas quitadas"
+
+	annotation PBI_ResultType = Table
+

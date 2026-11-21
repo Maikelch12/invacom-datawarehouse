@@ -1,0 +1,28 @@
+model Model
+	culture: es-MX
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-MX
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["dim_cliente","dim_descuento","dim_empleado","dim_estado_envio","dim_producto","dim_tiempo","dim_transportista","fact_pedidos","fact_ventas","_Medidas"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table dim_cliente
+ref table dim_descuento
+ref table dim_empleado
+ref table dim_estado_envio
+ref table dim_producto
+ref table dim_tiempo
+ref table dim_transportista
+ref table fact_pedidos
+ref table fact_ventas
+ref table _Medidas
+
+ref cultureInfo es-MX
+

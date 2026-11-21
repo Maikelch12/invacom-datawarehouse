@@ -1,0 +1,173 @@
+table fact_pedidos
+	lineageTag: e56ab3cc-813f-4caf-ae3a-34fbe320b0a1
+
+	column pedido_id
+		dataType: int64
+		formatString: 0
+		lineageTag: f4abff3e-8a01-4ea0-a82b-c93d7f8a076b
+		summarizeBy: sum
+		sourceColumn: pedido_id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_pedido_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ea1521ed-8aea-4223-a063-856afeeac19d
+		summarizeBy: none
+		sourceColumn: fecha_pedido_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_requerida_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f81d6550-f394-45f6-9962-1e006c4f1e9e
+		summarizeBy: sum
+		sourceColumn: fecha_requerida_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_envio_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 129fe7df-5437-47d4-88f3-b19e2c582cd5
+		summarizeBy: sum
+		sourceColumn: fecha_envio_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column cliente_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 54bd892c-62d9-40f8-9f97-46749c1aca77
+		summarizeBy: none
+		sourceColumn: cliente_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column empleado_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ded0c3ac-265d-4585-8e9b-53bf5a553ad0
+		summarizeBy: none
+		sourceColumn: empleado_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column transportista_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 6f1c6600-a8aa-4240-ad86-dca0aa610844
+		summarizeBy: none
+		sourceColumn: transportista_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column estado_envio_key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 49a7d3d5-ce4d-477c-83cd-3267856b8e38
+		summarizeBy: none
+		sourceColumn: estado_envio_key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column flete
+		dataType: double
+		isHidden
+		lineageTag: 72b6bf7d-a077-47e5-9d78-16f6a24abdac
+		summarizeBy: sum
+		sourceColumn: flete
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column lineas
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 282cb486-c8ba-4d80-85ab-1aec094cd1f3
+		summarizeBy: sum
+		sourceColumn: lineas
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column monto_neto_pedido
+		dataType: double
+		isHidden
+		lineageTag: f00569ec-f7a3-4a3b-9f55-58db86e5b479
+		summarizeBy: sum
+		sourceColumn: monto_neto_pedido
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column dias_despacho
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 627b8103-601a-46ca-b555-0fe02989e8ba
+		summarizeBy: sum
+		sourceColumn: dias_despacho
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column entregado_a_tiempo
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 59485152-9da5-49d1-ba4c-2e5a833b1bde
+		summarizeBy: sum
+		sourceColumn: entregado_a_tiempo
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_pedidos = m
+		mode: import
+		source =
+				let
+				  Origen = Sql.Database("localhost", "InvacomDW"),
+				  #"Navegación 1" = Origen{[Schema = "dbo", Item = "fact_pedidos"]}[Data]
+				in
+				  #"Navegación 1"
+
+	changedProperty = IsHidden
+
+	annotation PBI_ResultType = Table
+
