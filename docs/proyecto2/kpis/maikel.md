@@ -8,7 +8,7 @@
 | **Objetivo de negocio** | Saber si Invacom vende más que en el mismo mes del año anterior |
 | **Fórmula** | (Ventas netas del mes − Ventas netas del mismo mes del año anterior) ÷ Ventas netas del mismo mes del año anterior |
 | **Meta** | ≥ 15 % de crecimiento |
-| **Semáforo** | 🟢 ≥ 15 % · 🟡 entre 0 % y 15 % · 🔴 menor que 0 % |
+| **Semáforo** |  ≥ 15 % ·  entre 0 % y 15 % ·  menor que 0 % |
 | **Medidas DAX** | `Ventas Netas`, `Ventas Netas AA`, `Crecimiento YoY %`, `Color YoY` |
 | **Visualización** | Tarjeta con color según el semáforo, gráfico de columnas y líneas (año actual frente al anterior) y matriz mensual con formato condicional |
 
@@ -32,7 +32,7 @@
 | **Objetivo de negocio** | Detectar a tiempo las caídas de ventas de un mes al siguiente |
 | **Fórmula** | (Ventas netas del mes − Ventas netas del mes anterior) ÷ Ventas netas del mes anterior |
 | **Meta** | ≥ 0 % (no caer respecto al mes anterior) |
-| **Semáforo** | 🟢 ≥ 0 % · 🟡 entre −10 % y 0 % · 🔴 menor que −10 % |
+| **Semáforo** |  ≥ 0 % ·  entre −10 % y 0 % ·  menor que −10 % |
 | **Medidas DAX** | `Ventas Netas`, `Ventas Mes Anterior`, `Variación MoM %`, `Color MoM` |
 | **Visualización** | Tarjeta con color según el semáforo y matriz mensual con íconos de flecha |
 
