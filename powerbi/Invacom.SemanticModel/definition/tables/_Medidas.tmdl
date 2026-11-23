@@ -109,7 +109,7 @@ table _Medidas
 		lineageTag: 77b4cb7f-51d1-45e4-bb70-81b0081fd2da
 
 	measure 'Tasa Clientes Recurrentes' = DIVIDE ( [Clientes Recurrentes], [Clientes Activos] )
-		formatString: 0.0
+		formatString: 0.0%;-0.0%;0.0%
 		lineageTag: af688fd3-3fba-409d-86e3-72812eba52f4
 
 	measure 'Color Recurrentes' =
@@ -124,6 +124,18 @@ table _Medidas
 			        "#B91C1C"
 			    )
 		lineageTag: 8e8405a4-307f-4de8-9abc-20e35ebcbfe5
+
+	measure 'Tasa Recurrentes Promedio' =
+			
+			AVERAGEX (
+			    FILTER (
+			        VALUES ( dim_tiempo[anio_mes] ),
+			        [Clientes Activos] > 0 && LEFT ( dim_tiempo[anio_mes], 4 ) >= "2014"
+			    ),
+			    [Tasa Clientes Recurrentes]
+			)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 76fae1fd-d06e-4bcf-bec1-24d942ba5fed
 
 	partition _Medidas = m
 		mode: import

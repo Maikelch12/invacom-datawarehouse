@@ -56,6 +56,7 @@ table dim_cliente
 	column pais
 		dataType: string
 		lineageTag: 6bff1e8d-b243-4853-a0e5-6e3eee1b25ba
+		dataCategory: Country
 		summarizeBy: none
 		sourceColumn: pais
 
