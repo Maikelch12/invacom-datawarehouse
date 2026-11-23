@@ -67,6 +67,27 @@ table _Medidas
 			    )
 		lineageTag: 7b43363a-8077-4388-bc57-c80cbdf3450c
 
+	measure Pedidos = DISTINCTCOUNT ( fact_ventas[pedido_id] )
+		formatString: 0
+		lineageTag: ce8e73a1-4091-4dd0-b056-662846d858f9
+
+	measure 'Ticket Promedio' = DIVIDE ( [Ventas Netas], [Pedidos] )
+		formatString: 0.00
+		lineageTag: 2d200a6e-bd33-4a21-bff6-bfff4d5f6152
+
+	measure 'Color Ticket' =
+			
+			VAR Valor = [Ticket Promedio]
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        ISBLANK ( Valor ), "#9CA3AF",
+			        Valor >= 1500, "#15803D",
+			        Valor >= 1300, "#B45309",
+			        "#B91C1C"
+			    )
+		lineageTag: b50a877a-00e4-49c9-8e7d-1437ad9e90a8
+
 	partition _Medidas = m
 		mode: import
 		source =
