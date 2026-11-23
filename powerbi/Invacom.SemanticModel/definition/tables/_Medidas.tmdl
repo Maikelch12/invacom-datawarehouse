@@ -88,6 +88,43 @@ table _Medidas
 			    )
 		lineageTag: b50a877a-00e4-49c9-8e7d-1437ad9e90a8
 
+	measure 'Clientes Activos' = DISTINCTCOUNT ( fact_ventas[cliente_key] )
+		formatString: 0
+		lineageTag: 3099fb50-1bb8-41b2-845b-00829975a348
+
+	measure 'Clientes Recurrentes' =
+			
+			VAR InicioPeriodo = MIN ( dim_tiempo[fecha] )
+			RETURN
+			    COUNTROWS (
+			        FILTER (
+			            VALUES ( fact_ventas[cliente_key] ),
+			            CALCULATE (
+			                COUNTROWS ( fact_ventas ),
+			                FILTER ( ALL ( dim_tiempo ), dim_tiempo[fecha] < InicioPeriodo )
+			            ) > 0
+			        )
+			    )
+		formatString: 0
+		lineageTag: 77b4cb7f-51d1-45e4-bb70-81b0081fd2da
+
+	measure 'Tasa Clientes Recurrentes' = DIVIDE ( [Clientes Recurrentes], [Clientes Activos] )
+		formatString: 0.0
+		lineageTag: af688fd3-3fba-409d-86e3-72812eba52f4
+
+	measure 'Color Recurrentes' =
+			
+			VAR Valor = [Tasa Clientes Recurrentes]
+			RETURN
+			    SWITCH (
+			        TRUE (),
+			        ISBLANK ( Valor ), "#9CA3AF",
+			        Valor >= 0.90, "#15803D",
+			        Valor >= 0.80, "#B45309",
+			        "#B91C1C"
+			    )
+		lineageTag: 8e8405a4-307f-4de8-9abc-20e35ebcbfe5
+
 	partition _Medidas = m
 		mode: import
 		source =
