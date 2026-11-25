@@ -141,7 +141,7 @@ table _Medidas
 		formatString: #,0.00
 		lineageTag: 662e73cd-9d18-417f-90d2-071a160f8c61
 
-	measure 'Monto Descuento' = SUM(fact_ventas[monto_descuento])
+	measure 'Monto Descuento' = CALCULATE(SUM(fact_ventas[monto_descuento]), KEEPFILTERS(fact_ventas[monto_descuento] > 0))
 		formatString: #,0.00
 		lineageTag: f503a183-14d6-4edc-b49d-207881518da2
 
