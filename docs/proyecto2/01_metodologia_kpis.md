@@ -102,6 +102,59 @@ Cada KPI aprobado sigue el mismo camino hasta Power BI:
 
 ---
 
+## 6. Aplicación de la metodología a la rentabilidad comercial
+
+**Responsable del aporte:** Nayely Vega Murillo.
+
+### 6.1 Aplicación del Balanced Scorecard
+
+El indicador K7 pertenece a la perspectiva financiera, debido a que permite controlar el impacto de los descuentos sobre los ingresos comerciales.
+
+El indicador K8 pertenece a la perspectiva de procesos internos, ya que permite evaluar la eficiencia de los costos asociados al transporte de los pedidos.
+
+Ambos indicadores contribuyen al control de los costos comerciales y apoyan la toma de decisiones gerenciales.
+
+### 6.2 Justificación de las metas SMART
+
+Las metas se establecieron considerando el comportamiento histórico de los datos y la posibilidad de alcanzar mejores resultados.
+
+| Indicador | Resultado histórico | Meta | Mejor resultado mensual |
+|---|---:|---:|---:|
+| K7 - Tasa de descuento | 6,55 % | <= 6 % | 3,58 % |
+| K8 - Flete sobre ventas netas | 5,13 % | <= 5 % | 3,65 % |
+
+Para evaluar la viabilidad de las metas se analizaron 22 meses completos, desde julio de 2013 hasta abril de 2015. Ambos indicadores alcanzaron su respectiva meta en 10 de los 22 meses analizados.
+
+Mayo de 2015 se excluyó de esta evaluación mensual porque contiene información parcial.
+
+### 6.3 Criterios de interpretación
+
+| Indicador | Verde | Amarillo | Rojo |
+|---|---|---|---|
+| K7 | Hasta 6 % | Mayor a 6 % y hasta 8 % | Mayor a 8 % |
+| K8 | Hasta 5 % | Mayor a 5 % y hasta 6 % | Mayor a 6 % |
+
+Los colores permiten identificar rápidamente las desviaciones respecto a las metas establecidas.
+
+### 6.4 Validación de los indicadores
+
+Las medidas DAX se contrastaron con consultas SQL sobre las tablas de hechos del Data Warehouse.
+
+Los resultados obtenidos en Power BI coincidieron con los cálculos realizados en SQL Server.
+
+Se incorporó el archivo `sql/dw/validacion_k7_k8.sql` para facilitar la reproducción de estas comprobaciones.
+
+### 6.5 Apoyo a la toma de decisiones
+
+- Identificar categorías, productos y clientes con mayores montos de descuento.
+- Analizar el comportamiento mensual de los descuentos.
+- Comparar el costo relativo del flete entre transportistas.
+- Detectar desviaciones respecto a las metas comerciales.
+
+Estos indicadores permiten evaluar los descuentos y costos de transporte, aunque no representan por sí solos la rentabilidad total de la empresa, debido a que no se dispone de todos los costos operativos.
+
+---
+
 ## Referencias
 
 Doran, G. T. (1981). There's a S.M.A.R.T. way to write management's goals and objectives. *Management Review, 70*(11), 35–36.
