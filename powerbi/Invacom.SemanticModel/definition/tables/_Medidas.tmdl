@@ -137,6 +137,36 @@ table _Medidas
 		formatString: 0.0%;-0.0%;0.0%
 		lineageTag: 76fae1fd-d06e-4bcf-bec1-24d942ba5fed
 
+	measure 'Ventas Brutas' = SUM(fact_ventas[monto_bruto])
+		formatString: #,0.00
+		lineageTag: 662e73cd-9d18-417f-90d2-071a160f8c61
+
+	measure 'Monto Descuento' = SUM(fact_ventas[monto_descuento])
+		formatString: #,0.00
+		lineageTag: f503a183-14d6-4edc-b49d-207881518da2
+
+	measure 'Flete Total' = SUM(fact_pedidos[flete])
+		formatString: #,0.00
+		lineageTag: d47031cb-63a5-417b-9b42-125d413ae2e6
+
+	measure 'Ventas Netas Pedidos' = SUM(fact_pedidos[monto_neto_pedido])
+		formatString: #,0.00
+		lineageTag: 0d00c583-ad04-4eb1-8fb0-d830d5b758ed
+
+	measure 'Tasa de Descuento %' = DIVIDE([Monto Descuento], [Ventas Brutas])
+		formatString: 0.00%
+		lineageTag: 119621c6-4b7e-4f01-ba2d-6058173cc42b
+
+	measure 'Flete sobre Ventas %' = DIVIDE([Flete Total], [Ventas Netas Pedidos])
+		formatString: 0.00%
+		lineageTag: f3c2b2ad-2d55-4562-99d4-143559843db8
+
+	measure 'Color Descuento' = SWITCH(TRUE(), ISBLANK([Tasa de Descuento %]), "#9CA3AF", [Tasa de Descuento %] <= 0.06, "#15803D", [Tasa de Descuento %] <= 0.08, "#B45309", "#B91C1C")
+		lineageTag: a8246ebf-fb2b-4026-bf91-e4ac0c007261
+
+	measure 'Color Flete' = SWITCH(TRUE(), ISBLANK([Flete sobre Ventas %]), "#9CA3AF", [Flete sobre Ventas %] <= 0.05, "#15803D", [Flete sobre Ventas %] <= 0.06, "#B45309", "#B91C1C")
+		lineageTag: 5ef67b56-9ea9-4fa9-aa2f-efe9d8bac2d3
+
 	partition _Medidas = m
 		mode: import
 		source =
