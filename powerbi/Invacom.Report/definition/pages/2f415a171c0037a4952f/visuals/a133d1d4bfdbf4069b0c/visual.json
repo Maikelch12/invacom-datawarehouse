@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
   "name": "a133d1d4bfdbf4069b0c",
   "position": {
     "x": 23.333333333333336,
     "y": 581.66666666666674,
-    "z": 1,
+    "z": 1000,
     "height": 475,
-    "width": 381.66666666666669
+    "width": 381.66666666666669,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -300,23 +301,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "5983cbf9848105a17af7",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "Tasa Recurrentes Promedio"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

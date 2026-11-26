@@ -411,37 +411,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "dbdb42848fa512f44bb0",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_transportista"
-              }
-            },
-            "Property": "transportista"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "f96bec2b805e5fc10c38",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "Flete sobre Ventas %"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

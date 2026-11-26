@@ -4,10 +4,10 @@
   "position": {
     "x": 10,
     "y": 290,
-    "z": 1,
+    "z": 1000,
     "height": 280,
     "width": 280,
-    "tabOrder": 1
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -34,23 +34,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "906b2220356749880db1",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "Pedidos Tarde"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

@@ -307,20 +307,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "361338342ea63484d7d1",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "Variación MoM %"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

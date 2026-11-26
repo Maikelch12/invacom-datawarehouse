@@ -37,23 +37,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "ca6b16d9dad792b7ecbc",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "% Entregas a Tiempo"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

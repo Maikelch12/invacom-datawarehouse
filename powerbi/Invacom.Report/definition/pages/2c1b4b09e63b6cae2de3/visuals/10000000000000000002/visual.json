@@ -307,20 +307,6 @@
           ]
         },
         "howCreated": "User"
-      },
-      {
-        "name": "4e10e01eda68d3bba9c5",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "Crecimiento YoY %"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

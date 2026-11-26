@@ -251,23 +251,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "8791dcbc5bd6d2d42647",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "Flete sobre Ventas %"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

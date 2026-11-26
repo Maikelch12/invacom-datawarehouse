@@ -1,0 +1,340 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
+  "name": "2cbc47c7695af572f1a4",
+  "position": {
+    "x": 320.79800498753116,
+    "y": 54.264339152119696,
+    "z": 3000,
+    "height": 485,
+    "width": 640,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "dg5AAA90EFEFE747CB9357C4FC19B85A58",
+    "query": {
+      "queryState": {
+        "max": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Gauge K5 Max"
+                }
+              },
+              "queryRef": "_Medidas.Gauge K5 Max",
+              "nativeQueryRef": "Gauge K5 Max"
+            }
+          ]
+        },
+        "yellowStart": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Gauge K5 Alerta"
+                }
+              },
+              "queryRef": "_Medidas.Gauge K5 Alerta",
+              "nativeQueryRef": "Gauge K5 Alerta"
+            }
+          ]
+        },
+        "redEnd": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Gauge K5 Max"
+                }
+              },
+              "queryRef": "_Medidas.Gauge K5 Max",
+              "nativeQueryRef": "Gauge K5 Max"
+            }
+          ]
+        },
+        "min": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Gauge K5 Min"
+                }
+              },
+              "queryRef": "_Medidas.Gauge K5 Min",
+              "nativeQueryRef": "Gauge K5 Min"
+            }
+          ]
+        },
+        "yellowEnd": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Gauge K5 Meta"
+                }
+              },
+              "queryRef": "_Medidas.Gauge K5 Meta",
+              "nativeQueryRef": "Gauge K5 Meta"
+            }
+          ]
+        },
+        "redStart": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Gauge K5 Meta"
+                }
+              },
+              "queryRef": "_Medidas.Gauge K5 Meta",
+              "nativeQueryRef": "Gauge K5 Meta"
+            }
+          ]
+        },
+        "pointerValue": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Gauge K5 Porcentaje"
+                }
+              },
+              "queryRef": "_Medidas.Gauge K5 Porcentaje",
+              "nativeQueryRef": "Gauge K5 Porcentaje"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Medidas"
+                  }
+                },
+                "Property": "Gauge K5 Min"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "threeD": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "colorSelector": [
+        {
+          "properties": {
+            "actual": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#B91C1C'"
+                    }
+                  }
+                }
+              }
+            },
+            "target": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#B45309'"
+                    }
+                  }
+                }
+              }
+            },
+            "minmax": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#15803D'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "generalFormat": [
+        {
+          "properties": {
+            "trail": {
+              "expr": {
+                "Literal": {
+                  "Value": "'%'"
+                }
+              }
+            },
+            "decimalprecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "1L"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'K5 · Pedidos entregados a tiempo'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Meta ≥ 95 % · Amarillo 90–95 % · Rojo < 90 %'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "af993b0074ba8306226f",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Gauge K5 Max"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "cdd7d7c3e7af997ab573",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Gauge K5 Alerta"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e5fe9a22c34a98a53c38",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Gauge K5 Min"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1b5ce7e1b26869f591ea",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Gauge K5 Porcentaje"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b45a38999885516ff520",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Gauge K5 Meta"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

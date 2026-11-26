@@ -193,6 +193,26 @@ table _Medidas
 	measure 'Color Días' = SWITCH ( TRUE (), ISBLANK ( [Días Promedio Despacho] ), "#9CA3AF", [Días Promedio Despacho] <= 8, "#15803D", [Días Promedio Despacho] <= 10, "#B45309", "#B91C1C" )
 		lineageTag: 836485bc-6f20-4e97-8ab6-a94e53c5c1a1
 
+	measure 'Gauge K5 Min' = 0
+		formatString: 0\ %;-0\ %;0\ %
+		lineageTag: 9a3db9d7-aaa9-4d26-82ca-008d74515867
+
+	measure 'Gauge K5 Max' = 100
+		formatString: 0
+		lineageTag: 262576c2-5c7b-4525-a7bc-dd006b31b1dc
+
+	measure 'Gauge K5 Alerta' = 90
+		formatString: 0
+		lineageTag: 17afbfc7-d4e6-4631-9546-ad66564a9ac2
+
+	measure 'Gauge K5 Porcentaje' = [% Entregas a Tiempo] * 100
+		formatString: 0.00
+		lineageTag: d4e52174-3258-4b6c-a944-067e1c802e5b
+
+	measure 'Gauge K5 Meta' = 95
+		formatString: 0
+		lineageTag: 0f837f18-6956-47c3-a365-378d684340d8
+
 	partition _Medidas = m
 		mode: import
 		source =
