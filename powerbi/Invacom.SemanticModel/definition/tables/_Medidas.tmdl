@@ -167,6 +167,32 @@ table _Medidas
 	measure 'Color Flete' = SWITCH(TRUE(), ISBLANK([Flete sobre Ventas %]), "#9CA3AF", [Flete sobre Ventas %] <= 0.05, "#15803D", [Flete sobre Ventas %] <= 0.06, "#B45309", "#B91C1C")
 		lineageTag: 5ef67b56-9ea9-4fa9-aa2f-efe9d8bac2d3
 
+	measure '% Entregas a Tiempo' = AVERAGE ( fact_pedidos[entregado_a_tiempo] )
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: d7e71d9a-0fa8-48b7-a115-6fadcd43bb85
+
+	measure 'Pedidos Tarde' = CALCULATE ( COUNTROWS ( fact_pedidos ), FILTER ( fact_pedidos, NOT ISBLANK ( fact_pedidos[entregado_a_tiempo] ) && fact_pedidos[entregado_a_tiempo] = 0 ) )
+		formatString: 0
+		lineageTag: b501bd3c-3a2b-4f8f-b484-e8ebb9bc96cb
+
+	measure 'Meta Entregas' = 0.95
+		formatString: 0\ %;-0\ %;0\ %
+		lineageTag: 71e47a40-5101-4dc1-b830-821f799017e2
+
+	measure 'Color Entregas' = SWITCH ( TRUE (), ISBLANK ( [% Entregas a Tiempo] ), "#9CA3AF", [% Entregas a Tiempo] >= 0.95, "#15803D", [% Entregas a Tiempo] >= 0.90, "#B45309", "#B91C1C" )
+		lineageTag: 5aaa4fdd-ef90-4943-9b2a-0f3bca25626e
+
+	measure 'Días Promedio Despacho' = CALCULATE ( AVERAGE ( fact_pedidos[dias_despacho] ), USERELATIONSHIP ( fact_pedidos[fecha_envio_key], dim_tiempo[tiempo_key] ) )
+		formatString: 0.00
+		lineageTag: 402c01ea-f845-488a-8496-42ad81a38780
+
+	measure 'Meta Días' = 8
+		formatString: 0
+		lineageTag: c879f901-6e5e-4bcd-bbf2-d1a82218de95
+
+	measure 'Color Días' = SWITCH ( TRUE (), ISBLANK ( [Días Promedio Despacho] ), "#9CA3AF", [Días Promedio Despacho] <= 8, "#15803D", [Días Promedio Despacho] <= 10, "#B45309", "#B91C1C" )
+		lineageTag: 836485bc-6f20-4e97-8ab6-a94e53c5c1a1
+
 	partition _Medidas = m
 		mode: import
 		source =
