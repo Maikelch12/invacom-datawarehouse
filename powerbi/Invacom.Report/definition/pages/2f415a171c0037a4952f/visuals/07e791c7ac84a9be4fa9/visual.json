@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
   "name": "07e791c7ac84a9be4fa9",
   "position": {
     "x": 425,
     "y": 91.666666666666671,
-    "z": 2,
+    "z": 2000,
     "height": 540,
     "width": 875,
-    "tabOrder": 1
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "map",
@@ -284,37 +284,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "62d5acf49aaaedfe3eed",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_cliente"
-              }
-            },
-            "Property": "pais"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "35669775416ab3e8191d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "Ventas Netas"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

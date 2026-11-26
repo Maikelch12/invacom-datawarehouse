@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
   "name": "5b4ba3c1fd3aa7092a16",
   "position": {
     "x": 1316,
     "y": 92,
-    "z": 4,
+    "z": 4000,
     "height": 964,
     "width": 580,
-    "tabOrder": 3
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "barChart",
@@ -508,20 +508,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "332176981c0384433907",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "Ventas Netas"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }

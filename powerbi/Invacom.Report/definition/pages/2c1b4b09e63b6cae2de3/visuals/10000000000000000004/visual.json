@@ -323,51 +323,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "47a8e56a0d1e2ca790e7",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "dim_tiempo"
-              }
-            },
-            "Property": "anio_mes"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "81214a8a62e9912db82d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "Ventas Netas"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "933d11107436a919e9e0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "Ventas Netas AA"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

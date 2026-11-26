@@ -1,0 +1,220 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
+  "name": "eb40aca675298edd1eaf",
+  "position": {
+    "x": 971,
+    "y": 54,
+    "z": 3001,
+    "height": 485,
+    "width": 640,
+    "tabOrder": 3001
+  },
+  "visual": {
+    "visualType": "cylindricalGauge73A12A442345453EB69B593649C3A341",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Días Promedio Despacho"
+                }
+              },
+              "queryRef": "_Medidas.Días Promedio Despacho",
+              "nativeQueryRef": "Días Promedio Despacho"
+            }
+          ]
+        },
+        "TargetValue": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Meta Días"
+                }
+              },
+              "queryRef": "_Medidas.Meta Días",
+              "nativeQueryRef": "Meta Días"
+            }
+          ]
+        },
+        "Min": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Gauge K6 Min"
+                }
+              },
+              "queryRef": "_Medidas.Gauge K6 Min",
+              "nativeQueryRef": "Gauge K6 Min"
+            }
+          ]
+        },
+        "Max": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Gauge K6 Max"
+                }
+              },
+              "queryRef": "_Medidas.Gauge K6 Max",
+              "nativeQueryRef": "Gauge K6 Max"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Medidas"
+                  }
+                },
+                "Property": "Días Promedio Despacho"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "displayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "decimalValue": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'K6 · Días promedio de despacho'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Meta ≤ 8 días · Amarillo 8–10 · Rojo > 10'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "167cda77175828e068c7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Días Promedio Despacho"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2d51271ddf9aadab255f",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Meta Días"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "27942ee5b9294b80c4df",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Gauge K6 Min"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3f7d648cd3ca4174cfe2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Gauge K6 Max"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.4.0/schema.json",
   "themeCollection": {
     "baseTheme": {
       "name": "Fluent2-CY26SU10",
@@ -35,6 +35,10 @@
       }
     ]
   },
+  "publicCustomVisuals": [
+    "dg5AAA90EFEFE747CB9357C4FC19B85A58",
+    "cylindricalGauge73A12A442345453EB69B593649C3A341"
+  ],
   "resourcePackages": [
     {
       "name": "SharedResources",
@@ -68,5 +72,6 @@
     "useDefaultAggregateDisplayName": true,
     "customMemoryLimit": "1048576",
     "customTimeoutLimit": "225"
-  }
+  },
+  "linguisticSchemaSyncVersion": 2
 }
