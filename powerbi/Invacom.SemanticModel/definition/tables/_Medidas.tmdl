@@ -213,6 +213,14 @@ table _Medidas
 		formatString: 0
 		lineageTag: 0f837f18-6956-47c3-a365-378d684340d8
 
+	measure 'Gauge K6 Min' = 0
+		formatString: 0
+		lineageTag: 015d6ee6-0288-473a-a20e-b7ef03bf4f59
+
+	measure 'Gauge K6 Max' = 12
+		formatString: 0
+		lineageTag: 3ec0c7a8-abde-48ca-8c00-07fff6a0e029
+
 	partition _Medidas = m
 		mode: import
 		source =
