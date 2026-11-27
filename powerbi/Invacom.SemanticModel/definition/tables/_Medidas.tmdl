@@ -221,6 +221,122 @@ table _Medidas
 		formatString: 0
 		lineageTag: 3ec0c7a8-abde-48ca-8c00-07fff6a0e029
 
+	measure 'Pedidos Enviados KPI' = COUNT(fact_pedidos[entregado_a_tiempo])
+		formatString: 0
+		lineageTag: e0ca48ed-ad83-4df4-a31a-15627c766023
+
+	measure 'Resultado K1' = CALCULATE([Crecimiento YoY %], KEEPFILTERS(dim_tiempo[anio_mes] = "2015-04"))
+		formatString: 0.00%
+		lineageTag: 2bcc30ca-cf6d-45d1-9e35-c466b655574c
+
+	measure 'Meta K1' = 0.15
+		formatString: 0.00%
+		lineageTag: 53db3b8c-f266-4695-ab1e-e79dc4d8bb01
+
+	measure 'Estado K1' = IF(ISBLANK([Resultado K1]), "SIN DATOS", IF([Resultado K1] >= [Meta K1], "CUMPLE LA META", "NO CUMPLE LA META"))
+		lineageTag: d167b943-8bce-4c30-ae95-05a51058eb8b
+
+	measure 'Color Estado K1' = IF(ISBLANK([Resultado K1]), "#9CA3AF", IF([Resultado K1] >= [Meta K1], "#15803D", "#B45309"))
+		lineageTag: 3f6e9dd0-67b3-4502-8cc5-bee274183e3b
+
+	measure 'Resultado K2' = CALCULATE([Variación MoM %], KEEPFILTERS(dim_tiempo[anio_mes] = "2015-04"))
+		formatString: 0.00%
+		lineageTag: 5b811184-683a-4ebb-936b-d865bc570c02
+
+	measure 'Meta K2' = 0
+		formatString: 0.00%
+		lineageTag: 228df3ed-d856-4255-a514-bff32e4ab902
+
+	measure 'Estado K2' = IF(ISBLANK([Resultado K2]), "SIN DATOS", IF([Resultado K2] >= [Meta K2], "CUMPLE LA META", "NO CUMPLE LA META"))
+		lineageTag: 7d27301e-11cd-4e70-b2cc-d34cc140f82f
+
+	measure 'Color Estado K2' = IF(ISBLANK([Resultado K2]), "#9CA3AF", IF([Resultado K2] >= [Meta K2], "#15803D", "#B45309"))
+		lineageTag: fec21f9b-3b39-4efd-8c5d-93c96b5ba785
+
+	measure 'Resultado K3' = [Ticket Promedio]
+		formatString: #,0.00
+		lineageTag: 453b1bf5-8d78-4874-abf4-c23a4a1e871c
+
+	measure 'Meta K3' = 1500
+		formatString: #,0.00
+		lineageTag: 7c103bb2-442a-488c-a69e-7acee12e12a4
+
+	measure 'Estado K3' = IF(ISBLANK([Resultado K3]), "SIN DATOS", IF([Resultado K3] >= [Meta K3], "CUMPLE LA META", "NO CUMPLE LA META"))
+		lineageTag: ecee4d0b-f7fe-4b56-8319-5a5a26a97ed3
+
+	measure 'Color Estado K3' = IF(ISBLANK([Resultado K3]), "#9CA3AF", IF([Resultado K3] >= [Meta K3], "#15803D", "#B45309"))
+		lineageTag: 86bda4dd-6e07-41d5-a487-a9ae7526504a
+
+	measure 'Resultado K4' = [Tasa Recurrentes Promedio]
+		formatString: 0.00%
+		lineageTag: dc48be07-848c-4b72-8dc9-75108bc6356a
+
+	measure 'Meta K4' = 0.90
+		formatString: 0.00%
+		lineageTag: a4893a4d-0ae4-4723-a4c3-db757803b0fe
+
+	measure 'Estado K4' = IF(ISBLANK([Resultado K4]), "SIN DATOS", IF([Resultado K4] >= [Meta K4], "CUMPLE LA META", "NO CUMPLE LA META"))
+		lineageTag: 0227889b-799d-4ba3-8f13-99287293d18a
+
+	measure 'Color Estado K4' = IF(ISBLANK([Resultado K4]), "#9CA3AF", IF([Resultado K4] >= [Meta K4], "#15803D", "#B45309"))
+		lineageTag: ff9ba74b-3e4b-438e-a6a2-653d27b03342
+
+	measure 'Resultado K5' = [% Entregas a Tiempo]
+		formatString: 0.00%
+		lineageTag: 633d5cb4-95d2-4a55-9f4d-3a440104f444
+
+	measure 'Meta K5' = 0.95
+		formatString: 0.00%
+		lineageTag: 454d8279-de66-4d33-92d2-aae32bd9eaf1
+
+	measure 'Estado K5' = IF(ISBLANK([Resultado K5]), "SIN DATOS", IF([Resultado K5] >= [Meta K5], "CUMPLE LA META", "NO CUMPLE LA META"))
+		lineageTag: c819179b-d03b-4530-8a11-29c60d1b64bf
+
+	measure 'Color Estado K5' = IF(ISBLANK([Resultado K5]), "#9CA3AF", IF([Resultado K5] >= [Meta K5], "#15803D", "#B45309"))
+		lineageTag: 7d7bd7c4-6706-4183-b7a4-8b094f0dfe0b
+
+	measure 'Resultado K6' = [Días Promedio Despacho]
+		formatString: 0.00
+		lineageTag: c18f5474-7623-446f-9d6b-43962938245e
+
+	measure 'Meta K6' = 8
+		formatString: 0.00
+		lineageTag: adfbdeba-3407-4b03-8bb4-656294706929
+
+	measure 'Estado K6' = IF(ISBLANK([Resultado K6]), "SIN DATOS", IF([Resultado K6] <= [Meta K6], "CUMPLE LA META", "NO CUMPLE LA META"))
+		lineageTag: 73e6605e-8569-4bd3-bd43-a41c4b1d01ad
+
+	measure 'Color Estado K6' = IF(ISBLANK([Resultado K6]), "#9CA3AF", IF([Resultado K6] <= [Meta K6], "#15803D", "#B45309"))
+		lineageTag: 3130dc13-5380-4e21-89d7-f8aa4db17f30
+
+	measure 'Resultado K7' = [Tasa de Descuento %]
+		formatString: 0.00%
+		lineageTag: b4be8212-978a-4800-841d-01589a879645
+
+	measure 'Meta K7' = 0.06
+		formatString: 0.00%
+		lineageTag: 2c772398-c9d4-44ea-ae7f-567244bdae90
+
+	measure 'Estado K7' = IF(ISBLANK([Resultado K7]), "SIN DATOS", IF([Resultado K7] <= [Meta K7], "CUMPLE LA META", "NO CUMPLE LA META"))
+		lineageTag: 73f30196-a67c-4cb7-a479-73b4cdc6382b
+
+	measure 'Color Estado K7' = IF(ISBLANK([Resultado K7]), "#9CA3AF", IF([Resultado K7] <= [Meta K7], "#15803D", "#B45309"))
+		lineageTag: 8fa274b8-e170-40b7-9ed7-637a0f7174f8
+
+	measure 'Resultado K8' = [Flete sobre Ventas %]
+		formatString: 0.00%
+		lineageTag: e76c26a6-53a1-48d2-928f-e12725530212
+
+	measure 'Meta K8' = 0.05
+		formatString: 0.00%
+		lineageTag: 7d573bb9-d92b-4a9d-9e26-a3a1fbc99426
+
+	measure 'Estado K8' = IF(ISBLANK([Resultado K8]), "SIN DATOS", IF([Resultado K8] <= [Meta K8], "CUMPLE LA META", "NO CUMPLE LA META"))
+		lineageTag: 075d3e98-6f54-484b-ab81-520a19813759
+
+	measure 'Color Estado K8' = IF(ISBLANK([Resultado K8]), "#9CA3AF", IF([Resultado K8] <= [Meta K8], "#15803D", "#B45309"))
+		lineageTag: ed23ae0c-7e15-4b45-9c22-c419ea075eb4
+
 	partition _Medidas = m
 		mode: import
 		source =

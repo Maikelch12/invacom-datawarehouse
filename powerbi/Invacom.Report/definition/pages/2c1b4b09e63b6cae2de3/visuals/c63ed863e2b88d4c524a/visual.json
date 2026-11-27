@@ -601,5 +601,65 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "67c29d27d5f97b481529",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_tiempo"
+              }
+            },
+            "Property": "anio_mes"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9065732e613e7e33c7c1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Ventas Netas"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "593c2759a9878d5f95f9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Variación MoM %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3d307eedd0c98f34df17",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Crecimiento YoY %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

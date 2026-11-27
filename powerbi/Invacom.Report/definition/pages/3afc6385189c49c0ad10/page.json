@@ -1,8 +1,8 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
-  "name": "64c19faaefc6d3e13589",
-  "displayName": "4 · Rentabilidad comercial",
+  "name": "3afc6385189c49c0ad10",
+  "displayName": "K8 - Flete sobre ventas",
   "displayOption": "FitToPage",
-  "height": 1080,
-  "width": 1920
+  "height": 940,
+  "width": 1440
 }
