@@ -94,8 +94,8 @@ Combinamos los tres marcos en un proceso de 8 pasos:
 
 Cada KPI aprobado sigue el mismo camino hasta Power BI:
 
-1. **Dato** en el Data Warehouse (por ejemplo, `fact_ventas[monto_neto]`).
-2. **Medida DAX** que lo calcula (por ejemplo, `Crecimiento YoY %`).
+1. **Dato** en el Data Warehouse .
+2. **Medida DAX** que lo calcula .
 3. **Meta y semáforo**: verde, amarillo o rojo con formato condicional.
 4. **Visualización** principal y gráficos de contexto.
 5. **Comparación en el tiempo**: mes contra mes anterior y contra el mismo mes del año anterior.
