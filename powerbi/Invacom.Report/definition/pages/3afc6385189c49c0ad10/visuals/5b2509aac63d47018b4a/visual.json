@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
-  "name": "64000000000000000003",
+  "name": "5b2509aac63d47018b4a",
   "position": {
-    "x": 24,
-    "y": 712,
-    "z": 4000,
-    "height": 344,
-    "width": 1222,
-    "tabOrder": 4000
+    "x": 885,
+    "y": 320,
+    "z": 3000,
+    "height": 285,
+    "width": 535,
+    "tabOrder": 3000
   },
   "visual": {
-    "visualType": "columnChart",
+    "visualType": "barChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "dim_tiempo"
+                      "Entity": "dim_transportista"
                     }
                   },
-                  "Property": "anio_mes"
+                  "Property": "transportista"
                 }
               },
-              "queryRef": "dim_tiempo.anio_mes",
-              "nativeQueryRef": "anio_mes",
+              "queryRef": "dim_transportista.transportista",
+              "nativeQueryRef": "transportista",
               "active": true
             }
           ]
@@ -42,11 +42,11 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "Tasa de Descuento %"
+                  "Property": "Flete sobre Ventas %"
                 }
               },
-              "queryRef": "_Medidas.Tasa de Descuento %",
-              "nativeQueryRef": "Tasa de Descuento %"
+              "queryRef": "_Medidas.Flete sobre Ventas %",
+              "nativeQueryRef": "Flete sobre Ventas %"
             }
           ]
         }
@@ -55,16 +55,16 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "dim_tiempo"
+                    "Entity": "_Medidas"
                   }
                 },
-                "Property": "anio_mes"
+                "Property": "Flete sobre Ventas %"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ],
         "isDefaultSort": true
@@ -87,7 +87,7 @@
                           "Entity": "_Medidas"
                         }
                       },
-                      "Property": "Color Descuento"
+                      "Property": "Color Flete"
                     }
                   }
                 }
@@ -102,6 +102,51 @@
                 }
               }
             ]
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0F172A'"
+                    }
+                  }
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            }
           }
         }
       ],
@@ -135,99 +180,36 @@
             }
           }
         }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "gridlineShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'K7 - Tasa de descuento mensual'"
-                }
-              }
-            },
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#0F172A'"
-                    }
-                  }
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "20D"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "subTitle": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Semaforo mensual - Meta: 6 % o menos'"
-                }
-              }
-            },
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#64748B'"
-                    }
-                  }
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "13D"
-                }
-              }
-            }
-          }
-        }
-      ],
       "background": [
         {
           "properties": {
@@ -331,6 +313,33 @@
               "expr": {
                 "Literal": {
                   "Value": "16D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Analisis complementario'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
                 }
               }
             }

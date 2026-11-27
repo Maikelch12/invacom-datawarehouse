@@ -508,6 +508,20 @@
             }
           ]
         }
+      },
+      {
+        "name": "27a946d77a456647a7b1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Ventas Netas"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
-  "name": "8f379940e359a7536fd5",
+  "name": "9b7fec19c1b34cb4803d",
   "position": {
-    "x": 971.52984137087719,
-    "y": 63.808103988341514,
-    "z": 2000,
-    "height": 218.18254912142581,
-    "width": 924.188344863398,
-    "tabOrder": 2000
+    "x": 485,
+    "y": 15,
+    "z": 1000,
+    "height": 145,
+    "width": 300,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,123 +23,17 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "Flete sobre Ventas %"
+                  "Property": "Meta K7"
                 }
               },
-              "queryRef": "_Medidas.Flete sobre Ventas %",
-              "nativeQueryRef": "Flete sobre Ventas %"
+              "nativeQueryRef": "Meta K7",
+              "queryRef": "_Medidas.Meta K7"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Medidas"
-                  }
-                },
-                "Property": "Flete sobre Ventas %"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
-    "objects": {
-      "value": [
-        {
-          "properties": {
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Measure": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "_Medidas"
-                        }
-                      },
-                      "Property": "Color Flete"
-                    }
-                  }
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "48D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
-        }
-      ]
-    },
     "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'K8 · Flete sobre ventas'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "22D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "subTitle": [
-        {
-          "properties": {
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Meta: ≤ 5 %'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "15D"
-                }
-              }
-            }
-          }
-        }
-      ],
       "background": [
         {
           "properties": {
@@ -243,6 +137,33 @@
               "expr": {
                 "Literal": {
                   "Value": "16D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Meta establecida'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
                 }
               }
             }

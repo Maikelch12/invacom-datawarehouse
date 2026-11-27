@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.15.0/schema.json",
-  "name": "64000000000000000004",
+  "name": "4c25d86b3206432aa23f",
   "position": {
-    "x": 24,
-    "y": 302,
+    "x": 890.66595659699112,
+    "y": 318.78152043669286,
     "z": 6000,
-    "height": 390,
-    "width": 1872,
+    "height": 286.74317667421116,
+    "width": 519.02116895220342,
     "tabOrder": 6000
   },
   "visual": {
@@ -178,96 +178,6 @@
       ]
     },
     "visualContainerObjects": {
-      "title": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Análisis de descuentos'"
-                }
-              }
-            },
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#0F172A'"
-                    }
-                  }
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "20D"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
-                }
-              }
-            },
-            "bold": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "subTitle": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Categoria - Producto - Cliente'"
-                }
-              }
-            },
-            "fontColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#64748B'"
-                    }
-                  }
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "14D"
-                }
-              }
-            }
-          }
-        }
-      ],
       "background": [
         {
           "properties": {
@@ -371,6 +281,33 @@
               "expr": {
                 "Literal": {
                   "Value": "16D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Analisis complementario'"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
                 }
               }
             }
